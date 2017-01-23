@@ -1,0 +1,14 @@
+version: "2"
+services:
+    app:
+        image: golang:onbuild
+        command: make run
+        volumes:
+          - ./:/go/src/app
+#          - ./data:/go/src/app/data
+#          - ./Makefile:/go/src/app/Makefile
+#          - ./public:/go/src/app/public
+        ports:
+          - "4000:4000"
+        expose:
+          - "4000"

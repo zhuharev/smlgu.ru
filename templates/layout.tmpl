@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>{{.title}}</title>
+<meta name="description" content="{{.description}}">
+{{if .nightly_mode}}
+{{template "nightly_styles" .}}
+{{end}}
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<header>
+  <div class="box">
+  	<a class=logo href=/teachers ><i class="icon-club"></i></a>
+	<form class="header-search search hx" action="/prepodavateli/poisk">
+		<!--<input name="q" type="search" required placeholder="Поиск" autocomplete="off">
+		<ul class="ajax-search-results">
+			
+		</ul>
+		<input type="submit" style="position: absolute; left: -9999px"/>-->
+	</form>
+	<div class="toggle-collapse">
+	  	  <span class="icon-bar"></span>
+	  	  <span class="icon-bar"></span>
+	  	  <span class="icon-bar"></span>
+  	</div>
+  	<div class="nav">
+  		<!--<ul>
+  			{{if .authorised}}<li><a href=/logout>Выйти</a>{{else}}
+	  <li><a href="/firewall">Войти</a>{{end}}
+  		</ul>-->
+  	</div>
+  </div>
+</header>
+<main class=box>
+{{template "flash" .}}
+
+
+{{ yield }}
+
+</main>
+
+ <div class="box">
+   <footer>
+   <div class="footer-body cf">
+   		<!--<ul class="fl">
+   			<li><a href="#">Наверх</a></li>
+   			<li>·
+   			<li><a href="/log">Изменения</a></li>
+			   <li>·
+   			<li><a href="/pomogite">Вопросы?</a>
+   		</ul>-->
+      <!-- <ul class="fr footer-icons">
+         <li><a title="Твиттер СмолГУ клуба" target="_blank" href="https://twitter.com/smolgu"><i class="icon-twitter-bird"></i></a>
+         <li><a title="Подслушано в СмолГУ" target="_blank" href="https://vk.com/smolgu_ask"><i class="icon-overhear"></i></a>
+         <li><a title="Паблик СмолГУ в Вконтакте" target="_blank" href="https://vk.com/smolgu"><i class="icon-vk"></i></a>
+         <li><a title="Твиттер СмолГУ.Клуба" target="_blank" href="/"><i class="icon-profkom"></i></a>
+         <li><a title="Твиттер СмолГУ.Клуба" target="_blank" href="/"><i class="icon-antiprofkom"></i></a>
+         <li><a title="Официальный сайт СмолГУ" target="_blank" href="http://smolgu.ru"><i class="icon-smolgu-official"></i></a>
+      </ul> -->
+   </div>
+   <div class="footer-footer">&copy;2014&ndash;2017</div>
+   </footer>
+   <div class="to-top"><b>&uarr; <span class="hidden-mobile">Наверх<span></b></div>
+ </div>
+ <link rel=stylesheet href={{.sthost}}/norm.css>
+<link rel=stylesheet href={{.sthost}}/style.css?5>
+<link rel=stylesheet href={{.sthost}}/css/fontello.css?2>
+<script src="/js/app.js?2"></script>
+<script>
+if (localStorage["webp"] != "1" || localStorage["webp"]!="0") {
+	var WebP=new Image();WebP.onload=WebP.onerror=function(){
+		var date = new Date();
+	    date.setTime(date.getTime()+(60*24*60*60*1000));
+	    var expires = "; expires="+date.toGMTString();
+		if(WebP.height!=2){
+			localStorage["webp"] = "0"
+			document.cookie = "webp"+"="+"false"+expires+"; path=/";
+		} else {
+			localStorage["webp"] = "1"
+			document.cookie = "webp"+"="+"true"+expires+"; path=/";
+		}
+	}
+	WebP.src='data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
+}
+</script>
+<script type="text/javascript">
+document.write("<img src='//counter.yadro.ru/hit?t52.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='' "+"border='0' width='1' height='1'>")
+</script>

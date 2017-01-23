@@ -1,0 +1,31 @@
+{{$user := .user}}{{$authorized := .authorised}}{{$current_url := .current_url}}
+<div class="cm33 cs50 cx100 cl25 item">
+  <div class="item-pic-box">
+    <img  class="item-pic" width="120" height="120" src="/teachers/avatars/{{.guru.User.Username}}">
+  </div>
+  <div class="item-desc">
+  <div class="item-desc-name">
+    <h3>{{print  .guru.User.FirstName " " .guru.User.Patronymic " " .guru.User.LastName }}</h3>
+  </div>
+  	{{range .guru.Features.AsSlice}}
+  	<div>
+  	  <b><smal>{{gurufeature .Feature.String}}</smal></b>
+  	  <div class="r">
+  	    <div class="c66 wrap">
+	  	    <div class="progress">
+  	  	    <div class="progress-bar" style="width:{{ .PositiveWidth}}%">
+  	  	    	{{.Positive}}
+  	  	    </div>
+  	  	    <div class="progress-bar progress-bar-danger" style="width:{{.AgainstWidth}}%">
+  	  	    	{{.Against}}
+  	  	    </div>
+	  	    </div>
+  	    </div>
+        <div class="c33 shadow-border text-center">{{.Sum}}</div>
+  	  </div>
+  	  
+  	</div>
+  	{{end}}
+  </div>
+</div>
+

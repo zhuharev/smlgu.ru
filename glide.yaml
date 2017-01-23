@@ -1,0 +1,3 @@
+package: pure/smolgu/gurus
+import:
+- package: github.com/urfave/cli
